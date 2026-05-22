@@ -6,8 +6,10 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [react()],
-    // ✅ Proxy only used during local dev (npm run dev / npm start)
-    // In production on Netlify, VITE_API_URL env variable is used directly
+    esbuild: {
+      loader: 'jsx',
+      include: /src\/.*\.js$/,
+    },
     server: {
       proxy: {
         '/predict': {
