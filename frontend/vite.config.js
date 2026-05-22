@@ -6,10 +6,6 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [react()],
-    esbuild: {
-      loader: 'jsx',
-      include: /src\/.*\.js$/,
-    },
     server: {
       proxy: {
         '/predict': {
